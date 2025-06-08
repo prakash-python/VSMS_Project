@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h2>Welcome , {{request.user.username}}</h2>
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button type="submit" name="get_details">Get Batch Details</button>
+            <button type="submit" name="create_batch">Create Batch</button>
+            
+        </form><br><br>
+        <a href="{% url 'course' %}" style="text-decoration: none;">create course</a>
+        <a href="{% url 'stafflogouturl' %}" style="text-decoration: none;">Logout</a>
+        <br><br><br>
+        {%if error %}
+          <p style="color: red;">  {{error}}</p>
+        {% endif %}
+    </body>
+        
+    
+</html>

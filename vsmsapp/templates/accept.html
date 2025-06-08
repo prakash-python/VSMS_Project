@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Accepted</title>
+</head>
+<body>
+    <h1>Registration Accepted</h1>
+    <p>The registration for {{ student.first_name }} {{ student.last_name }} has been accepted.</p>
+    <p>The student has been notified and can now log in.</p>
+    <a href="{% url 'index' %}">Back to Home</a>
+    <script type="text/javascript">
+        alert("Student has been accepted and notified.");
+    </script>
+</body>
+</html>

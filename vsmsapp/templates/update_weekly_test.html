@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>update weekly Test Details</title>
+    </head>
+    <body>
+        <h1>Update Weekly Test Details for {{student.first_name}} {{student.last_name}}</h1>
+        <form action="" method="post">
+            {%csrf_token%}
+            {{form.as_p}}
+            <button value="submit">Update Weekly Test Details</button>
+        </form>
+    </body>
+</html>

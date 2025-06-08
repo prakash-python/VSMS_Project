@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 10px;
+        padding: 40px;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+        font-size: 20px;
+        color: white;
+    }
+   .Admin{
+    width: 500px;
+    height: 100px;
+    background-color: red;
+    float: left;
+    margin-left: 250px;
+   }
+   .STAFF{
+    width: 500px;
+    height: 100px;
+    background-color: blue;
+    float: left;
+    margin-left: 250px;
+   }
+   .STUDENT{
+    width: 500px;
+    height: 100px;
+    background-color: green;
+    float: left;
+    margin-left: 250px;
+   }
+    h1{
+        width: 100%;
+        height: 50px;
+        background-color: yellow;
+        margin-top: -90px;
+        font-size: 30px;
+    }
+</style>
+<body>
+    <h1>VSM'S APP</h1>
+        <div class="Admin">
+            <a href="" style="text-decoration: none;">Admin</a>
+        </div>
+        <div class="STAFF">
+            <a href="{% url 'stafflogin' %}" style="text-decoration: none;">STAFF</a>
+        </div>
+        <div class="STUDENT">
+            <a href="{% url 'student_login' %}" style="text-decoration: none;">STUDENT</a>
+        </div>  
+</body>
+</html>
+

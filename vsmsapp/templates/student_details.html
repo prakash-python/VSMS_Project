@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    <form action="post">
+    {% csrf_token %}
+    <h2>Student Details</h2>
+    <p>Name: {{ student.first_name }} {{ student.last_name }}</p>
+    <p>Email: {{ student.email }}</p>
+    <p>Course: {{ student.course }}</p>
+    <p>Mobile Number: {{ student.mobile_number }}</p>
+    {% if student.image %}
+    <img src="{{ student.image.url }}" alt="Student Image" style="max-width: 200px;">
+    {% endif %}
+
+    <p><a href="{% url 'index' %}">Back to Home</a></p>
+    <p><a href="{% url 'logout' %}">logout</a></p> 
+</form>  
+</body>
+</html>
+

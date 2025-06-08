@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Weekly Test Details</title>
+        <style>
+            body a{
+                margin-right: 100px;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>weekly_tests Details for {{student.first_name}} {{student.last_name}}</h1>
+        <p>Details : {{weekly_test.details}}</p>
+        <p>Date : {{weekly_test.date}}</p>
+        {% if message %}
+        <p style="color: green;">{{message}}</p>
+        {% endif %}
+        <a href="{% url 'update_weekly_test' student.id %}" >Update weekly_tests Details</a>
+        <a href="{% url 'batchdetails' student.batch.Batchname student.batch.Batchnumber %}" >Back To Batch Details</a>
+    </body>
+</html>

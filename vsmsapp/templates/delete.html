@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<input>
+    <head>
+        <title>Delete Student</title>
+    </head>
+    <body>
+        <form action="" method="post">
+            {%csrf_token%}
+            <div id="d1">
+            <p>Do you really want to <b class="b1"> Delete {{student.first_name}} {{student.last_name}}</b></p>
+            <p>Please <b class="b1"> Confirm </b></p>
+            <input type="submit" value="Confirm">
+        </div>
+        </form>
+    </body>
+    
+    
+</html>

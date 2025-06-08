@@ -1,0 +1,25 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h2>Staff Login</h2>
+        
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Login">
+        </form>
+        <a href="{% url 'staffregisterurl' %}" style="text-decoration: none;">Register</a><br><br>
+
+        
+        {% if error %}
+            <p style="color: red;">{{ error }}</p>
+        {% endif %}<br><br>
+        <a href="{% url 'index' %}" style="text-decoration: none;"> Back to Home </a>
+    </div>
+</body>
+</html>

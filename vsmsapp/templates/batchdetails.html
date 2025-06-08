@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table,th,td{
+                border: 2px solid black;
+                border-collapse: collapse;
+            }
+            table a{
+                text-decoration: none;
+            }
+            th{
+                background-color: red;
+                color: white;
+            }
+            #actions a{
+                display: inline-block;
+                margin-right: 100px;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h1 style="text-align: center;">Batch Details</h1>
+        
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        
+    {% endif %}
+
+   <p> <b> BatchName </b> : {{batchname}}</p>
+   <p> <b> BatchNumber </b> : {{batchnumber}}</p>
+    <br><br>
+    <h2 style="text-align: center;">Student Details</h2>
+    <div id="actions">
+        <a href="{% url 'take_attendance' batchname batchnumber %}">Take Attendence</a>
+        <a href="{% url 'get_mock_performance'  %}">Add Mock Performance</a>
+        <a href="{% url 'get_weekly_test' %}">Add Weekly Test </a>
+        <a href="{% url 'get_deleted_students' %}">Get Deleted Studednts</a>
+        <a href="{% url 'staffhomeurl' %}">Back to Home</a>
+    </div><br><br>
+    <table>
+        <tr><th>Student Id</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Course</th>
+            <th>Attendence</th>
+            <th>MockRating</th>
+            <th>WeeklyTest</th>
+            <th>select to delete </th>
+            
+            {% for student_obj in students %}
+            <tr><td><a href="{% url 'selecturl' student_obj.id %}">{{student_obj.id}}</a></td>
+                <td>{{student_obj.first_name}}</td>
+                <td>{{student_obj.last_name}}</td>
+                <td>{{student_obj.email}}</td>
+                <td>{{student_obj.course}}</td>
+                <td>{% if student_obj.attendance_set.last %}{{ student_obj.attendance_set.last.details }}{% else %}0/0{% endif %}</td>
+                <td>{% if student_obj.mockperformance_set.last %}{{ student_obj.mockperformance_set.last.details }}{% else %}0/0{% endif %}</td>
+                <td>{% if student_obj.weeklytest_set.last %}{{ student_obj.weeklytest_set.last.details }}{% else %}0/0{% endif %}</td>
+                <td><button>Delete</button></td>
+            </tr>
+            {% endfor %}
+                
+
+    </table>
+<br>
+    
+    
+    </body>
+</html>

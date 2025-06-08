@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mock Performance Details</title>
+    </head>
+    <body>
+        <h1>Mock Performance Details for {{ student.first_name }} {{ student.last_name }}</h1>
+        
+        <p>Details: {{ mock_performance.details }}</p>
+        <p>Date: {{ mock_performance.date }}</p>
+        {% if message %}
+            <p style="color: green;">{{ message }}</p>
+        {% endif %} <br><br>
+
+        <a href="{% url 'update_mock_performance' student.id %}" style="text-decoration: none;">Update Mock Performance</a><br><br><br>
+        <a href="{% url 'batchdetails' student.batch.Batchname student.batch.Batchnumber %}" style="text-decoration: none;">Back to Batch Details</a>
+    </body>
+</html>
