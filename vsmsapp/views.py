@@ -50,10 +50,10 @@ def stafflogin(request):
 
 def create_batch(request, batch_name, batch_num):
     try:
-        batch_details = batch.objects.get(Batchname=batch_name, Batchnumber=batch_num)
+        batch_details = Batch.objects.get(Batchname=batch_name, Batchnumber=batch_num)
         success_message = "Batch already exists."
-    except batch.DoesNotExist:
-        new_batch = batch(Batchname=batch_name, Batchnumber=batch_num)
+    except Batch.DoesNotExist:
+        new_batch = Batch(Batchname=batch_name, Batchnumber=batch_num)
         new_batch.save()
         success_message = "New batch created successfully."
         batch_details = new_batch
